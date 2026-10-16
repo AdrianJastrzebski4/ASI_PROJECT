@@ -1,13 +1,11 @@
 # Konfiguracja projektu zespołu. Ten plik edytuje zespół (Sprint 1).
 # Kontrakt datasetów prowadzącej jest w src/asi_project/datasets.yaml — tamtego pliku nie edytujemy.
 
-# TODO (S1): id datasetu z docs/datasets.md, np. ai4i_2020.
-dataset: null
+dataset: ai4i_2020
 
-# TODO (S1): typy cech po EDA. Wyłącznie kolumny z ALLOWED FEATURES wybranego datasetu.
 features:
-  numeric: []
-  categorical: []
+  numeric: ["Air temperature [K]","Process temperature [K]","Rotational speed [rpm]","Tool wear [min]", "Torque [Nm]"]
+  categorical: ["Type"]
 
 split:
   test_size: 0.2

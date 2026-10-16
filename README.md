@@ -14,17 +14,17 @@ powiązane, ale nie zawierają gotowych rozwiązań ani zadań do wykonania wcze
 <!-- KARTA-PROJEKTU:START -->
 ## Karta projektu (wypełnia zespół w Sprincie 1)
 
-| Pole | Wartość |
-|---|---|
-| Zespół i integrator Sprintu 1 | TODO |
-| Dataset (id z `docs/datasets.md`) | TODO |
-| Źródło, licencja i cytowanie (DOI) | TODO |
-| Data pobrania danych | TODO |
-| SHA-256 pliku danych (`fingerprint.json`) | TODO |
-| Dane osobowe w zbiorze i sposób postępowania | TODO |
-| Target i klasa pozytywna | TODO |
-| Metryka główna i uzasadnienie | TODO |
-| Użytkownik systemu i decyzja, którą wspiera model | TODO |
+| Pole | Wartość                                                                                                                                                                                 |
+|---|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Zespół i integrator Sprintu 1 | Antoni Kluczkowski, Kamil Bertram, Adrian Jastrzębski                                                                                                                                   |
+| Dataset (id z `docs/datasets.md`) | ai4i_2020 — AI4I 2020 Predictive Maintenance                                                                                                                                                                            |
+| Źródło, licencja i cytowanie (DOI) | Źródło: UCI Machine Learning Repository (https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset). Licencja: CC BY 4.0. Cytowanie: Matzka, S. (2020). AI4I 2020 Predictive Maintenance Dataset. UCI Machine Learning Repository. https://doi.org/10.24432/C5HS5C |
+| Data pobrania danych | 16.10.2026                                                                                                                                                                              |
+| SHA-256 pliku danych (`fingerprint.json`) | dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e                                                                                                                                                                                  |
+| Dane osobowe w zbiorze i sposób postępowania | Brak. Dane są syntetyczne i opisują proces produkcyjny, nie ludzi. UDI i Product ID to tylko identyfikatory, wykluczone z cech modelu.                                                                                                                                                                                  |
+| Target i klasa pozytywna | Machine failure, klasa pozytywna 1 (awaria maszyny)                                                                                                                                                                                   |
+| Metryka główna i uzasadnienie | F1 dla klasy 1 (awaria). Awarii jest bardzo mało (ok. 3,4%), więc model, który zawsze odpowiada „nie będzie awarii”, ma i tak ok. 96% accuracy, a nie wykrywa ani jednej awarii. Dlatego accuracy nie ma tu sensu. F1 bierze pod uwagę zarówno to, ile awarii model złapał, jak i to, ile razy podniósł fałszywy alarm.                                                                                                                                                                                 |
+| Użytkownik systemu i decyzja, którą wspiera model | Użytkownikiem jest technik odpowiedzialny za maszyny na produkcji. Model na podstawie aktualnych odczytów maszyny (temperatury, prędkość, moment obrotowy, zużycie narzędzia) mówi, czy grozi awaria, a technik decyduje, czy zatrzymać maszynę albo wymienić narzędzie, zanim coś się zepsuje.                                                                                                                                                                                  |
 <!-- KARTA-PROJEKTU:END -->
 
 ## Mapa projektu
