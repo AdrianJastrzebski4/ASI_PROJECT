@@ -182,11 +182,8 @@ def normalize_input(df: pd.DataFrame) -> pd.DataFrame:
     - nie używa targetu ani statystyk zbioru (żadnych median, średnich ani ``fit``),
     - jest idempotentna: ponowne wywołanie nie zmienia wyniku.
 
-    Domyślnie przycina białe znaki w wartościach tekstowych i zamienia puste napisy na brak.
+    Domyślnie przycina białe znaki w wartościach tekstowych i zamienia puste napisy na brak."""
 
-    TODO (S1): po EDA dopisz reguły dla swojego datasetu, np. oczywiste reprezentacje braków
-    albo konwersję typów. Każdą regułę uzasadnij w notebooku 01.
-    """
     normalized = df.copy()
     for column in normalized.columns:
         if is_text_column(normalized[column]):
@@ -198,13 +195,12 @@ def filter_training_rows(df: pd.DataFrame, contract: DatasetContract) -> pd.Data
     """Training-only filtering — tylko przy przygotowaniu danych treningowych.
 
     Domyślnie usuwa rekordy bez targetu (nie da się na nich uczyć ani oceniać modelu).
-    Funkcja może tylko usuwać rekordy; nie dodaje ich i nie zmienia wartości.
+    Funkcja może tylko usuwać rekordy; nie dodaje ich i nie zmienia wartości."""
 
-    TODO (S1): po EDA zdecyduj, czy potrzebne są inne reguły (np. dokładne duplikaty).
-    Decyzję i jej powód zapisz w notebooku 01.
-    """
     keep = df[contract.target].map(label_text).notna()
-    return df.loc[keep].copy()
+    filtered_df = df.loc[keep].copy()
+    filtered_df = filtered_df.drop_duplicates()
+    return filtered_df
 
 
 # --- X / y i split -----------------------------------------------------------------------------
