@@ -16,7 +16,7 @@ powiązane, ale nie zawierają gotowych rozwiązań ani zadań do wykonania wcze
 
 | Pole | Wartość                                                                                                                                                                                 |
 |---|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Zespół i integrator Sprintu 1 | Antoni Kluczkowski, Kamil Bertram, Adrian Jastrzębski                                                                                                                                   |
+| Zespół i integrator Sprintu 1 | Antoni Kluczkowski (Integrator) , Kamil Bertram, Adrian Jastrzębski                                                                                                                                   |
 | Dataset (id z `docs/datasets.md`) | ai4i_2020 — AI4I 2020 Predictive Maintenance                                                                                                                                                                            |
 | Źródło, licencja i cytowanie (DOI) | Źródło: UCI Machine Learning Repository (https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset). Licencja: CC BY 4.0. Cytowanie: Matzka, S. (2020). AI4I 2020 Predictive Maintenance Dataset. UCI Machine Learning Repository. https://doi.org/10.24432/C5HS5C |
 | Data pobrania danych | 16.10.2026                                                                                                                                                                              |
