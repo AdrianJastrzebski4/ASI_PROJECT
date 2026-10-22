@@ -47,11 +47,32 @@ gotowy — sprawdza to `python scripts/check_dod.py`.
 
 <!-- DIAGRAM-V0:START -->
 ```mermaid
-flowchart LR
-    data["TODO: źródło danych"] --> model["TODO: kolejne elementy systemu"]
+flowchart TD
+    data["Dane ai4i2020.csv + kontrakt danych (S1)"]
+    norm["normalize_input() (S1)"]
+    filt["filter_training_rows() (S1)"]
+    pipe["Pipeline: preprocessing + LogisticRegression (S1)"]
+    model[("Model (plan)")]
+    db[("Baza predykcji (plan)")]
+
+    subgraph cloud["Cloud Run (plan)"]
+        ui["UI (plan)"]
+        api["API (plan)"]
+    end
+
+    data --> norm --> filt --> pipe --> model
+    model -->|"wczytany raz przy starcie"| api
+    ui -->|"Req: /predict"| api
+    api -->|"Res: predykcja awarii 0/1 + prawdopodobieństwo"| ui
+    api -->|"zapis predykcji"| db
 ```
 
-TODO: krótki opis diagramu (3–5 zdań).
+Oznaczenia: (S1) — istnieje po Sprincie 1, (plan) — planowane w kolejnych sprintach.
+
+- Dane `ai4i2020.csv` pobieramy z UCI Machine Learning Repository, a kontrakt danych (`datasets.yaml` + `project.yaml`) określa target i dozwolone cechy.
+- `normalize_input()` ujednolica wejście (także w API), a `filter_training_rows()` tylko przy treningu usuwa rekordy bez targetu i duplikaty.
+- Preprocessing i `LogisticRegression` tworzą jeden `Pipeline`, który zapiszemy jako model, a API wczyta go raz przy starcie.
+- UI wysyła `POST /predict`, API zwraca predykcję awarii (0/1) z prawdopodobieństwem i zapisuje ją w bazie, a całość zostanie wdrożona w Cloud Run.
 <!-- DIAGRAM-V0:END -->
 
 ## Historia zmian architektury
