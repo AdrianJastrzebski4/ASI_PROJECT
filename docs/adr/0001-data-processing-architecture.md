@@ -1,9 +1,9 @@
 # ADR-1: Architektura i podział logiki przetwarzania danych (Data Processing Architecture)
 
-- **Status:** proponowany
+- **Status:** zaakceptowany
 - **Sprint:** S2
 - **Autor:** Kamil Bertram
-- **Recenzent:** imię i nazwisko (inna osoba niż autor)
+- **Recenzent:** Antoni Kluczkowski
 
 ## Kontekst
 
@@ -42,6 +42,7 @@ Co trzeba będzie zrobić: Przy integracji następnych Sprintów trzeba będzie 
 
 ## Historia
 
-| Data       | Zmiana |
-|------------|---|
-| 10.11.2026 | utworzenie |
+| Data       | Zmiana                                            |
+|------------|---------------------------------------------------|
+| 10.11.2026 | utworzenie                                        |
+| 11.11.2026 | review (Antoni Kluczkowski), status zaakceptowany |
