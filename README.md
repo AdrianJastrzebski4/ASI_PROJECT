@@ -88,6 +88,46 @@ Najważniejsze pliki Sprintu 1:
 | `docs/architecture.md` | zespół | diagram v0 systemu docelowego |
 | `src/asi_project/datasets.yaml` | prowadząca | kontrakt datasetów — nie edytujemy |
 
+
+## Kedro quickstart
+
+Trening modelu uruchamiamy pipeline'em Kedro, notebook nie jest do tego potrzebny.
+
+**1. Środowisko i instalacja**
+
+```bash
+conda activate asi-ml
+python -m pip install -r requirements/preflight-s2.txt -c constraints.txt   # Kedro + kedro-datasets
+python -m pip install --no-deps -e .                                        # pakiet projektu
+```
+
+**2. Dane**
+
+```bash
+python scripts/download_data.py
+```
+
+Pełne dane trafiają do `data/01_raw/ai4i_2020/` (poza gitem). W repozytorium jest tylko próbka CI `data/01_raw/sample.csv`.
+
+**3. Uruchomienie**
+
+```bash
+kedro run              # pełne dane (konfiguracja conf/base + conf/local)
+kedro run --env ci     # próbka CI (conf/ci nadpisuje raw_data na sample.csv)
+```
+
+Pipeline wykonuje kolejno: walidację kontraktu → input normalization → training-only filtering → split → trening sklearn Pipeline → ewaluację.
+
+**4. Wyniki**
+
+| Co | Gdzie |
+|---|---|
+| dane po przygotowaniu | `data/02_intermediate/prepared.csv` |
+| model | `data/06_models/model.pkl` |
+| metryki | `data/08_reporting/metrics.json` |
+
+Ścieżki danych są w `conf/base/catalog.yml`, a parametry splitu w `conf/base/parameters.yml`.
+
 ## Gałęzie, Pull Requesty i review
 
 - Gałąź `main` jest chroniona. Każda zmiana trafia przez gałąź i Pull Request.
