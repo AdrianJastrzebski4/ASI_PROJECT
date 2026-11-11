@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
 
 permissions:
@@ -50,6 +50,9 @@ jobs:
 
       - name: pytest
         run: pytest
+
+      - name: Kedro run (próbka CI)
+        run: kedro run --env ci
 
       - name: Stan projektu
         id: status
