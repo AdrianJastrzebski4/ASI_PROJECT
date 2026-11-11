@@ -12,7 +12,7 @@ def create_pipeline(**kwargs) -> Pipeline:
         [
             node(
                 func=validate_data_node,
-                inputs=["raw_data", "params:contract", "params:config"],
+                inputs="raw_data",
                 outputs="validated_data",
                 name="validate_data_node",
             ),
@@ -24,7 +24,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             ),
             node(
                 func=filter_training_rows_node,
-                inputs=["normalized_data", "params:contract"],
+                inputs="normalized_data",
                 outputs="prepared_data",
                 name="filter_training_rows_node",
             ),

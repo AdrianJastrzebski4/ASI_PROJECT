@@ -31,6 +31,5 @@ def test_filter_training_rows_node_removes_duplicates_and_missing_target(
 
 
 def test_validate_data_node_passes_valid_df(toy_contract, toy_frame):
-    validated = validate_data_node(toy_frame, toy_contract)
-
+    validated = validate_data_node(toy_frame, contract=toy_contract)
     assert len(validated) == len(toy_frame)
