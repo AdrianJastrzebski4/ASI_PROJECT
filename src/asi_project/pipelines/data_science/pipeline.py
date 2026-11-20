@@ -47,6 +47,7 @@ def create_pipeline(**kwargs) -> Pipeline:
                     "params:split",
                     "params:autogluon",
                     "params:wandb",
+                    "baseline_tracking_info",
                 ],
                 outputs="autogluon_metrics",
                 name="run_autogluon_experiments_node",

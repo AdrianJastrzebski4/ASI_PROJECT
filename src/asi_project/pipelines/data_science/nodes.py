@@ -108,6 +108,7 @@ def run_autogluon_experiments_node(
     split_params: dict[str, Any],
     ag_params: dict[str, Any],
     wandb_params: dict[str, Any],
+    _baseline_tracking_info: dict[str, Any],
 ) -> dict[str, Any]:
     if not ag_params.get("enabled", True):
         return {"status": "disabled_in_config"}
