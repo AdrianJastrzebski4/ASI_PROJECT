@@ -1,3 +1,19 @@
 split:
   test_size: 0.2
   random_state: 42
+
+wandb:
+  project: "asi-project"
+  entity: "s31194-polish-japanese-academy-of-information-technology"
+
+autogluon:
+  enabled: true
+  eval_metric: "f1"
+  models_dir: "data/06_models/autogluon"
+  experiments:
+    ag_fast:
+      presets: "medium_quality"
+      time_limit: 30
+    ag_good:
+      presets: "good_quality"
+      time_limit: 90
