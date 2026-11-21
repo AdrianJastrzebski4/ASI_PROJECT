@@ -18,6 +18,7 @@
 
 | Skrypt | Sprint | Kontrakt |
 |---|---|---|
+| `compare_models.py` | S3 | porównanie modeli na zbiorze testowym: F1, czas predykcji całego zbioru testowego, rozmiar artefaktu, pamięć po wczytaniu |
 | smoke modelu | S3 | pobranie pakietu `production` z W&B → wczytanie w czystym procesie → predykcja 5 wierszy → sprawdzenie schematu odpowiedzi |
 | wspólny smoke API | S4 → S6 | `/healthz` → tryb persistence → `/predict` z tokenem → kontrakt odpowiedzi → w trybie `sql` zapisany rekord, w trybie `disabled` brak wymogu zapisu; ten sam skrypt na kontenerze, na compose i na Cloud Run |
 
