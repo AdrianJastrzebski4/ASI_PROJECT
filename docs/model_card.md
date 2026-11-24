@@ -3,7 +3,8 @@
 ## Model
 
 - `ag_fast` — AutoGluon `WeightedEnsemble_L2`, wytrenowany lokalnie 23.11.2026.
-- Artefakt W&B `production` — adres i wersja do uzupełnienia po publikacji.
+- Artefakt W&B — `s31194-polish-japanese-academy-of-information-technology/asi-project/ag-fast:v0`, alias `production`.
+- Smoke test (24.11.2026) — pobranie i wczytanie pakietu w osobnym procesie zakończone sukcesem. Model zwrócił pięć etykiet `[0, 0, 0, 0, 0]`.
 
 ## Przeznaczenie
 

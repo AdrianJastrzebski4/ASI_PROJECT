@@ -36,9 +36,10 @@ Akceptujemy niższe F1 o 0,040. Na zbiorze testowym `ag_fast` wykrył 46 z 68
 awarii, a `ag_good` wykrył 50. Pomiar pamięci pochodzi z jednego przebiegu
 we wspólnym procesie i ma charakter orientacyjny.
 
-Pakiet będzie zawierał katalog `model/` i plik `metadata.json`.
-Opublikujemy go jako W&B Artifact z aliasem `production`.
-Adres i wersję artefaktu dopiszemy po publikacji.
+Pakiet zawiera katalog `model/` i plik `metadata.json`.
+
+- Artefakt W&B — `s31194-polish-japanese-academy-of-information-technology/asi-project/ag-fast:v0`, alias `production`.
+- Smoke test (24.11.2026) — pobranie i wczytanie pakietu w osobnym procesie zakończone sukcesem. Model zwrócił pięć etykiet `[0, 0, 0, 0, 0]`.
 
 ## Odrzucone alternatywy
 
