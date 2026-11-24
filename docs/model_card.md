@@ -2,30 +2,32 @@
 
 ## Model
 
-- Typ modelu i jego wersja — do uzupełnienia po wyborze modelu i publikacji artefaktu w W&B pod aliasem `production`.
-- Data utworzenia i autor runu — do uzupełnienia na podstawie runu wybranego modelu w W&B.
+- `ag_fast` — AutoGluon `WeightedEnsemble_L2`, wytrenowany lokalnie 23.11.2026.
+- Artefakt W&B `production` — adres i wersja do uzupełnienia po publikacji.
 
 ## Przeznaczenie
 
-- Problem — klasyfikacja binarna awarii maszyny. Target to `Machine failure`, a klasa pozytywna to `1` (awaria).
-- Użytkownik systemu i wspierana decyzja — pracownik utrzymania ruchu może użyć wyniku jako wskazówki, czy skierować maszynę do dodatkowej kontroli.
-- Zastosowania, do których model nie jest przeznaczony — automatyczne wyłączanie maszyn i samodzielne podejmowanie decyzji dotyczących bezpieczeństwa.
+- Wspiera decyzję technika o dodatkowej kontroli maszyny.
+- Target — `Machine failure`. Klasa pozytywna `1` oznacza awarię.
 
 ## Dane
 
-- Dataset — `ai4i_2020` (AI4I 2020 Predictive Maintenance Dataset). Fingerprint SHA-256 do uzupełnienia z metadanych wybranego modelu.
-- Strategia splitu — losowy podział stratyfikowany, 80% trening i 20% test, `random_state: 42`. Liczebności do potwierdzenia na podstawie wybranego runu.
+- `ai4i_2020`, podział stratyfikowany 80/20, `random_state=42`.
+- Fingerprint przygotowanych danych — `317d6fd9e5bfa21b`.
 
 ## Metryki
 
-- Metryka główna — F1 na zbiorze testowym. Wynik wybranego modelu i wynik `DummyClassifier` do uzupełnienia po ewaluacji.
-- Pozostałe metryki i macierz pomyłek — do uzupełnienia wynikami wybranego modelu.
+- F1 **0,780**, precyzja **0,920**, recall **0,676**, accuracy **0,987**.
+- Macierz pomyłek — TN 1928, FP 4, FN 22, TP 46.
+- Dla porównania F1 regresji logistycznej wyniosło 0,177, a wcześniejszy
+  wynik `DummyClassifier` wyniósł 0,000.
 
 ## Ograniczenia i ryzyka
 
-- Ograniczenia danych — AI4I 2020 to zbiór syntetyczny. Przed użyciem w zakładzie trzeba zweryfikować model na rzeczywistych danych.
-- Znane błędy i sytuacje, w których model zawodzi — do uzupełnienia po analizie błędów. Fałszywy alarm może prowadzić do zbędnej kontroli, a przeoczona awaria może opóźnić interwencję.
+- Dane są syntetyczne. Przed użyciem w zakładzie potrzebna jest walidacja
+  na rzeczywistych danych. Model przeoczył 22 z 68 awarii na zbiorze testowym.
 
 ## Wersje
 
-- Wersje bibliotek modelu i Git SHA treningu — do uzupełnienia z `metadata.json` wybranego pakietu.
+- Git SHA treningu — `28a05c25141ec0c7f47f0779758306b9cddd87d2`.
+- AutoGluon Tabular 1.6.3, LightGBM 4.7.0, pandas 2.3.3, scikit-learn 1.7.2.
