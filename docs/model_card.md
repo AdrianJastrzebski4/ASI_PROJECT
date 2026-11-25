@@ -1,34 +1,34 @@
 # Model Card
 
-> Scaffold for Sprint 3 — do not implement before this sprint.
-> Minimalną Model Card wypełnia zespół w Sprincie 3, a aktualizuje w Sprincie 6.
-
 ## Model
 
-- Typ modelu i jego wersja (alias `production` w W&B):
-- Data utworzenia i autor runu:
+- `ag_fast` — AutoGluon `WeightedEnsemble_L2`, wytrenowany lokalnie 23.11.2026.
+- Artefakt W&B — `s31194-polish-japanese-academy-of-information-technology/asi-project/ag-fast:v0`, alias `production`.
+- Smoke test (24.11.2026) — pobranie i wczytanie pakietu w osobnym procesie zakończone sukcesem. Model zwrócił pięć etykiet `[0, 0, 0, 0, 0]`.
 
 ## Przeznaczenie
 
-- Problem (binary classification) i klasa pozytywna:
-- Użytkownik systemu i decyzja, którą wspiera model:
-- Zastosowania, do których model nie jest przeznaczony:
+- Wspiera decyzję technika o dodatkowej kontroli maszyny.
+- Target — `Machine failure`. Klasa pozytywna `1` oznacza awarię.
 
 ## Dane
 
-- Dataset (id z `docs/datasets.md`) i fingerprint danych:
-- Strategia splitu z kontraktu i liczebności zbiorów:
+- `ai4i_2020`, podział stratyfikowany 80/20, `random_state=42`.
+- Fingerprint przygotowanych danych — `317d6fd9e5bfa21b`.
 
 ## Metryki
 
-- Metryka główna na zbiorze testowym, w porównaniu z DummyClassifier:
-- Pozostałe metryki i macierz pomyłek:
+- F1 **0,780**, precyzja **0,920**, recall **0,676**, accuracy **0,987**.
+- Macierz pomyłek — TN 1928, FP 4, FN 22, TP 46.
+- Dla porównania F1 regresji logistycznej wyniosło 0,177, a wcześniejszy
+  wynik `DummyClassifier` wyniósł 0,000.
 
 ## Ograniczenia i ryzyka
 
-- Ograniczenia danych (z `docs/datasets.md`):
-- Znane błędy i sytuacje, w których model zawodzi:
+- Dane są syntetyczne. Przed użyciem w zakładzie potrzebna jest walidacja
+  na rzeczywistych danych. Model przeoczył 22 z 68 awarii na zbiorze testowym.
 
 ## Wersje
 
-- Wersje bibliotek modelu i git SHA treningu:
+- Git SHA treningu — `28a05c25141ec0c7f47f0779758306b9cddd87d2`.
+- AutoGluon Tabular 1.6.3, LightGBM 4.7.0, pandas 2.3.3, scikit-learn 1.7.2.
