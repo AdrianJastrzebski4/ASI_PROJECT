@@ -1,9 +1,9 @@
 # ADR-2: Wybór modelu produkcyjnego
 
-- **Status** — przyjęty
+- **Status** — zaakceptowany
 - **Sprint** — S3
 - **Autor** — Adrian Jastrzębski
-- **Recenzent** — do uzupełnienia po review
+- **Recenzent** — Antoni Kluczkowski
 
 ## Kontekst
 
@@ -57,7 +57,8 @@ wczyta model i sprawdzi schemat predykcji dla pięciu wierszy.
 
 ## Historia
 
-| Data | Zmiana |
-|---|---|
-| 2026-11-18 | Utworzenie szkicu |
+| Data       | Zmiana                                  |
+|------------|-----------------------------------------|
+| 2026-11-18 | Utworzenie szkicu                       |
 | 2026-11-24 | Wybór `ag_fast` na podstawie benchmarku |
+| 2026-11-25 | Recenzja                                |
